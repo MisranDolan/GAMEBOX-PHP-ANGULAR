@@ -1,0 +1,36 @@
+<!--Component file that controls the greater app page view, mainly dealing with application navigation-->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-lg large-nav">
+  <div class="container-fluid">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="localhost/gamebox/index.php">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li>
+        <form action="results.php" method="get">
+          <div class="input-group ml-5">
+            <input type="search" name="search" id="navsearch" placeholder="What're you searching for?"
+              class="form-control bg-secondary">
+            <div class="input-group-append">
+              <button type="submit" class="btn bg-secondary"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://localhost/gamebox/shopping_cart.php">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

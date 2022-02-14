@@ -1,0 +1,101 @@
+<!--Component file that controls the create-listing page view, this component file handles 2-way data binding to allow data points to be updated on both the front end and back end-->
+<style>
+    .navbar {
+        z-index: 300;
+    }
+
+    .nav-item:hover {
+        background: #4280d6;
+        border-radius: 5px;
+    }
+
+
+    #navsearch {
+        border-color: gray;
+    }
+
+    #navseearch:focus {
+        border-color: black;
+    }
+
+
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #363535;
+    }
+
+    .warning {
+        color: red;
+        display: none;
+    }
+</style>
+
+<div class="container mt-5">
+    <!-- <form> -->
+    <form #listingForm="ngForm" (ngSubmit)="onSubmit(listingForm.value)"
+        onsubmit="window.location.href = 'http://localhost/gamebox';" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title" name="title" required #title="ngModel" [ngClass]="{
+    'is-valid':listingModel.title != ''}" [class.is-invalid]="title.invalid && title.touched"
+                [(ngModel)]="listingModel.title">
+            <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is requried</small>
+        </div>
+        <div class="form-group">
+            <label for="game">Game</label>
+            <input type="input" class="form-control" id="game" name="game" required #game="ngModel" [ngClass]="{
+    'is-valid':listingModel.game != ''}" [class.is-invalid]="game.invalid && game.touched"
+                [(ngModel)]="listingModel.game">
+            <small class="text-danger" [class.d-none]="game.valid || game.untouched">Game is requried</small>
+        </div>
+        <div class="form-group">
+            <label for="game">Location</label>
+            <input type="input" class="form-control" id="location" name="location" #location="ngModel" [ngClass]="{
+    'is-valid':listingModel.location != ''}" [(ngModel)]="listingModel.location">
+            <div id="location_warning" class="warning">Location cannot be empty</div>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="input" [ngClass]="{
+    'is-valid':listingModel.price != null,
+    'is-invalid':listingModel.price === null }" class="form-control" id="price" name="price" #price="ngModel"
+                [(ngModel)]="listingModel.price">
+            <div id="price_warning" class="warning">Price must be valid currency format Ex. 10.50</div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Condition</label>
+            <select class="form-control" id="condition" name="condition" #condition="ngModel" [ngClass]="{
+    'is-valid':listingModel.condition != ''}" [(ngModel)]="listingModel.condition">
+                <option value=""></option>
+                <option *ngFor="let condition of conditions"> {{ condition }}
+            </select>
+        </div>
+        <div class=" form-group">
+            <label for="Console">Console</label>
+            <select class="form-control" id="console" name="console" #console="ngModel" [ngClass]="{
+    'is-valid':listingModel.console != ''}" [(ngModel)]="listingModel.console">
+                <option value=""></option>
+                <option *ngFor="let console of consoles"> {{ console }}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows=" 3" #description="ngModel"
+                [(ngModel)]="listingModel.description"></textarea>
+            <div *ngIf="listingModel.description.length > 1000">
+                <p [ngStyle]="{'color':'red'}">Number of characters: {{ listingModel.description.length }}. Description
+                    must
+                    be less than 1000
+                    characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="picture">Upload Photo</label>
+            <input type="file" class="form-control-file" name="image[]" (change)="onFileChange($event)" id="image"
+                multiple>
+        </div>
+        <button name="submit_listing" id="submit_listing" value="submit" type="submit"
+            class="btn btn-primary">Submit</button>
+    </form>
+</div>

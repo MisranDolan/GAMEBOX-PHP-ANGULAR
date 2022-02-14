@@ -1,4 +1,5 @@
-<!--Front end view of a game listing which includes functionality to fetch game information from the database as well as pushing game information to your cart -->
+<!-- Front end view of a game listing which includes functionality to fetch game information from the database as well as pushing game information to your cart -->
+<!-- To see the full project please visit https://github.com/MisranDolan/GAMEBOX-PHP-Angular -->
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+    z-index: 300;
+}
+
+.nav-item:hover {
+  background: #4280d6;
+  border-radius: 5px;
+}
+
+.showcase {
+  background: #333 url("../images/landing_page.jpg") no-repeat center center/cover;
+  object-fit: cover;
+  height: 90vh;
+  color: #fff;
+}
+
+.showcase .showcase-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+
+  align-items: center;
+  height: 90%;
+  padding: 6rem 2rem;
+
+  position: absolute;
+  top: 20;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#navsearch {
+    border-color: gray;
+}
+
+#navseearch:focus {
+    border-color: black;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #363535;
+}
+
+.listing_img {
+    width:130px;
+    height:200px;
+}
+
+.post_img {
+  height:400px;
+}
+
+.carousel-item{
+  text-align: center;
+}
+
+.carousel-item img{
+  display: block;
+  margin: auto;
+}
+
+.warning {
+  color: red;
+  display: none;
+}
+
+.profile-picture {
+  width: 200px;
+  height: 300px;
+}

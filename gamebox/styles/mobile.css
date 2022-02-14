@@ -1,0 +1,14 @@
+@media (min-width: 834px) {
+    .small-nav {display: none}
+}
+
+@media screen and (max-width: 833px) {
+  .large-nav { display: none; }  
+    .navbar-nav{ display: block}
+    .navbar-expand-sm {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+}
